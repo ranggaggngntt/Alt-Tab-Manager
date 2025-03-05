@@ -1,0 +1,4 @@
+pynput
+pywinauto
+pillow
+pywin32
