@@ -11,6 +11,7 @@ A customizable Alt+Tab replacement for Windows, built with Python. This tool pro
 - **Blacklist**: Exclude specific windows or applications from the Alt+Tab list.
 - **Customizable UI**: Modern and customizable overlay UI.
 - **Low-Level Keyboard Hook**: Intercepts and replaces the default Alt+Tab behavior.
+- **Improved Focus Handling**: Uses DLL injection into `explorer.exe` to ensure proper window focus.
 
 ---
 
@@ -32,10 +33,35 @@ A customizable Alt+Tab replacement for Windows, built with Python. This tool pro
    ```sh
    pip install -r requirements.txt
    ```
-3. **Run the application**:
+3. **Build or use prebuilt DLL for focus injection**:
+   - You can manually build the DLL located in `Focus_injector/`
+   - Or use the prebuilt version included in the repository
+
+4. **Run the application**:
    ```sh
    python index.py
    ```
+   
+5. **(Optional) Add the script to Task Scheduler for auto-start**:
+
+   Steps:
+
+   1. Press **Win + R**, type `taskschd.msc`, and press **Enter**.
+   2. Click **Create Basic Task** in the right panel.
+   3. Name it **Alt-Tab Manager** and click **Next**.
+   4. Select **When I log on** and click **Next**.
+   5. Choose **Start a program** and click **Next**.
+   6. Browse to your Python executable (e.g., `C:\Python39\pythonw.exe`).
+   7. In the **Add arguments** field, enter the path to `index.py`:
+      
+      ```
+      "C:\path\to\index.py"
+      ```
+   
+   8. Click **Next**, then **Finish**.
+
+   **Note**: Use `pythonw.exe` instead of `python.exe` to prevent the console window from appearing.
+
 
 ---
 
